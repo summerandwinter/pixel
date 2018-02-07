@@ -1,0 +1,41 @@
+/**index.wxss**/
+
+@font-face {
+  font-family: pixel;
+  src: url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.eot?v=2.4.0');
+  src: url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.eot?v=2.4.0#iefix') format('embedded-opentype'),
+         url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.woff2?v=2.4.0') format('woff2'),
+         url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.ttf?v=2.4.0') format('truetype'),
+         url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.woff?v=2.4.0') format('woff'),
+         url('//summerandwinter.github.io/lab/pixelart/assert/pixel_maz.svg?v=2.4.0#pixel_maz') format('svg');
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.pixel, .empty {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-left: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #4c4c4c;
+  font-family: pixel;
+}
+
+.le {
+  border-left: 1px solid #fff;
+}
+
+.te {
+  border-top: 1px solid #fff;
+}
+
+.row .empty {
+  background: #fff;
+}

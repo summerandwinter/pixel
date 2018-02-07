@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container" style="height: {{height}}px;width: {{width}}px;">
+  <movable-area style="height: {{araeHeight}}px;width: {{areaWith}}px;overflow:hidden;">
+    <movable-view style="height: {{moveableHeight}}px; width: {{moveableWidth}}px;" direction="all" inertia="true" out-of-bounds="true" damping="20" friction="2">
+       <view class="canvas" style="transform:scale({{ratio}},{{ratio}})">
+        <view class="row" wx:for="{{pixels}}" wx:for-index="idx" wx:for-item="row">
+          <block wx:for="{{row}}" wx:for-index="pidx" wx:for-item="pixel">
+            <block wx:if="{{pixel.empty}}">
+              <view class="{{pixel.style}}"></view>
+            </block>
+            <block wx:if="{{!pixel.empty}}">
+              <view class="pixel" style="background-color:{{pixel.color}}">{{pixel.num}}</view>
+            </block>
+          </block>
+        </view>
+       </view>
+    </movable-view>
+  </movable-area>
+
+</view>
