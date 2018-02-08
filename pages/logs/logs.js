@@ -1,15 +1,12 @@
-//logs.js
-const util = require('../../utils/util.js')
-
 Page({
   data: {
-    logs: []
+    x: 0,
+    y: 0
   },
-  onLoad: function () {
+  tap: function (e) {
     this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
-    })
+      x: 30,
+      y: 30
+    });
   }
 })

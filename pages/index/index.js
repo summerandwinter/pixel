@@ -14,6 +14,7 @@ Page({
     var pixelMap = data.pixel_map;
     var palette = data.palette;
     var pixels = [];
+    var palettes = [];
     var res = wx.getSystemInfoSync();
     
     var moveableHeight = pixelMap.length*21;
@@ -24,7 +25,17 @@ Page({
     var araeHeight = ratio * moveableHeight;
     var x = -(moveableWidth - areaWith)/2;
     var y = -(moveableHeight - araeHeight)/2;
-    this.setData({ width: res.windowWidth, height: res.windowHeight, moveableWidth: moveableWidth, moveableHeight: moveableHeight, araeHeight: araeHeight, areaWith: areaWith, ratio: ratio,x:x,y:y});
+    this.setData({ width: res.windowWidth, height: res.windowHeight, moveableWidth: areaWith, moveableHeight: araeHeight, araeHeight: araeHeight, areaWith: areaWith, ratio: ratio,x:x,y:y});
+    Object.keys(palette).forEach(function (key) {
+      var pal = {};
+      var c = palette[key].split(" ");
+      var color = new Color.Color(parseFloat(c[0]), parseFloat(c[1]), parseFloat(c[2]))
+      pal.color = color.toCSS();
+      pal.num = key;
+      palettes.push(pal);
+
+    });
+    this.setData({ palettes: palettes});
     for (var i = 0; i < pixelMap.length; i++) {
       var row = [];
       for (var j = 0; j < pixelMap[i].length; j++) {

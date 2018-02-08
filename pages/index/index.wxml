@@ -1,8 +1,50 @@
 <!--index.wxml-->
 <view class="container" style="height: {{height}}px;width: {{width}}px;">
+
+<view class="top-controller">
+	<view class="btn back">
+	<view></view><view></view><view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view></view><view class="dot"></view><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view>
+	</view>
+	
+
+	
+	<view class="btn share">
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view><view></view><view></view>
+	<view></view><view></view><view></view><view class="dot"></view><view class="dot"></view ><view class="dot"></view><view></view><view></view><view></view>
+	<view></view><view></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view ><view class="dot"></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view><view></view><view></view>
+	<view></view><view></view><view></view><view></view><view class="dot"></view><view></view><view></view><view></view><view></view>
+	<view class="dot"></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view class="dot"></view>
+	<view class="dot"></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view class="dot"></view>
+	<view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view><view class="dot"></view>
+	</view>
+	
+	<view class="btn night">
+	<view></view> <view></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view>
+	<view></view> <view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view>
+	<view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view>
+	<view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view>
+	<view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view></view>
+	<view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view></view> <view></view> <view class="dot"></view>
+	<view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view></view> <view></view> <view></view> <view class="dot"></view> <view class="dot"></view>
+	<view></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view></view>
+	<view></view> <view></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view class="dot"></view> <view></view> <view></view>
+	</view>
+	</view>
+
+
   <movable-area style="overflow:hidden;height: {{araeHeight}}px;width: {{areaWith}}px;overflow:hidden;">
     <movable-view style="overflow:hidden;height: {{moveableHeight}}px; width: {{moveableWidth}}px;" x="{{x}}" y="{{y}}" direction="{{direction}}" inertia="true" out-of-bounds="true" damping="20" friction="2">
-       <view class="canvas" style="transform-origin:center center;transform:scale({{ratio}},{{ratio}})">
+      <view class="canvas" style="transform-origin:left top;transform:scale({{ratio}},{{ratio}})">
         <view class="row" wx:for="{{pixels}}" wx:for-index="idx" wx:for-item="row">
           <block wx:for="{{row}}" wx:for-index="pidx" wx:for-item="pixel">
             <block wx:if="{{pixel.empty}}">
@@ -13,8 +55,14 @@
             </block>
           </block>
         </view>
-       </view>
+      </view>
     </movable-view>
   </movable-area>
+  <scroll-view class="bottom-controller" scroll-x="true">
+  <view class="palette-container">
+   <view wx:for="{{palettes}}" class="palette" wx:for-index="idx" wx:for-item="palette" style="background-color:{{palette.color}}">{{palette.num}}</view>
+  </view>
+ 
+  </scroll-view>
 
 </view>

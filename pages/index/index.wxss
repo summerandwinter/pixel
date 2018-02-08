@@ -39,3 +39,57 @@
 .row .empty {
   background: #fff;
 }
+
+.bottom-controller {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  left: 0;
+  bottom: 0;
+}
+
+.top-controller {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dot {
+  background: #000;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  width: 27px;
+  flex-wrap: wrap;
+}
+
+.btn view {
+  width: 3px;
+  height: 3px;
+  flex-shrink: 0;
+}
+
+.palette-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.palette {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #4c4c4c;
+  font-family: pixel;
+}
