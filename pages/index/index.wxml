@@ -45,10 +45,10 @@
   <movable-area style="overflow:hidden;height: {{araeHeight}}px;width: {{areaWith}}px;overflow:hidden;">
     <movable-view style="overflow:hidden;height: {{moveableHeight}}px; width: {{moveableWidth}}px;" x="{{x}}" y="{{y}}" direction="{{direction}}" inertia="true" out-of-bounds="true" damping="20" friction="2">
       <view class="canvas" style="transform-origin:left top;transform:scale({{ratio}},{{ratio}})">
-        <view class="row" wx:for="{{pixels}}" wx:for-index="idx" wx:for-item="row">
-          <block wx:for="{{row}}" wx:for-index="pidx" wx:for-item="pixel">
+        <view class="row" wx:for="{{pixels}}" wx:for-index="idx" wx:for-item="row" wx:key="{{idx}}">
+          <block wx:for="{{row}}" wx:for-index="pidx" wx:for-item="pixel" wx:key="{{id}}">
             <block wx:if="{{pixel.empty}}">
-              <view class="{{pixel.style}}"></view>
+              <view class="{{pixel.style}}" ></view>
             </block>
             <block wx:if="{{!pixel.empty}}">
               <view class="pixel" style="background-color:{{pixel.color}}">{{pixel.num}}</view>
@@ -60,7 +60,7 @@
   </movable-area>
   <scroll-view class="bottom-controller" scroll-x="true">
   <view class="palette-container">
-   <view wx:for="{{palettes}}" class="palette" wx:for-index="idx" wx:for-item="palette" style="background-color:{{palette.color}}">{{palette.num}}</view>
+   <view wx:for="{{palettes}}" class="palette" wx:for-index="idx" wx:for-item="palette" wx:key="{{id}}" style="background-color:{{palette.color}}">{{palette.num}}</view>
   </view>
  
   </scroll-view>

@@ -29,9 +29,11 @@ Page({
     Object.keys(palette).forEach(function (key) {
       var pal = {};
       var c = palette[key].split(" ");
+      console.log(c);
       var color = new Color.Color(parseFloat(c[0]), parseFloat(c[1]), parseFloat(c[2]))
       pal.color = color.toCSS();
       pal.num = key;
+      pal.id = "paltte"+key;
       palettes.push(pal);
 
     });
@@ -40,9 +42,11 @@ Page({
       var row = [];
       for (var j = 0; j < pixelMap[i].length; j++) {
         var pixel = {};
+        pixel.id = "pixel"+i+"_"+j;
         var v = pixelMap[i][j];
         if (v > -1) {
           var c = palette[v].split(" ");
+          
           var color = new Color.Color(parseFloat(c[0]), parseFloat(c[1]), parseFloat(c[2]))
           pixel.color = color.toCSS();
           pixel.num = v;
