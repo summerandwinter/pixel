@@ -51,8 +51,8 @@
 
 .top-controller {
   position: fixed;
-  width: 100%;
-  left: 0;
+  width: 90%;
+  left: 5%;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -60,7 +60,7 @@
 }
 
 .dot {
-  background: #000;
+  background: #aaa;
 }
 
 .btn {
@@ -78,9 +78,10 @@
 
 .palette-container {
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   flex-wrap: nowrap;
 }
 
@@ -88,9 +89,43 @@
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  font-size: 40px;
-  line-height: 40px;
+  display: flex;
+  margin: 0px 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
   text-align: center;
   color: #4c4c4c;
   font-family: pixel;
 }
+
+.palette text{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: pixel;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #4c4c4c;
+}
+.border-light{
+  background-color:#000;opacity:0.1
+}
+.border-none{
+  background-color:#000;opacity:0
+}
+
+.selected .border-light{
+  opacity:1
+}
+
+.selected .border-none{
+  opacity:1
+}
+.palette view{
+   width: 4px;
+   height: 4px;
+  flex-shrink: 0;
+}	

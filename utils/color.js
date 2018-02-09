@@ -452,7 +452,7 @@ const Color = function () {
       spaces.cmyk.y = _clip(spaces.cmyk.y);
       spaces.cmyk.k = _clip(spaces.cmyk.k);
     }
-    return  spaces.cmyk;
+    return spaces.cmyk;
   };
 
   this.getLAB = function () {
@@ -527,6 +527,33 @@ const Color = function () {
     var rgb = this.getRGB();
     return _hexify(rgb.r * 255) + _hexify(rgb.g * 255) + _hexify(rgb.b * 255);
   };
+
+  this.toGray = function () {
+    var rgb = this.getRGB();
+    var gray = .299 * rgb.r + .587 * rgb.g + .114 * rgb.b;
+    return this.copy().setRGB(gray, gray, gray)
+  }
+
+  this.toBlack = function () {
+    var rgb = this.getRGB();
+    var avg = (rgb.r * 255 + rgb.g * 255 + rgb.b * 255) / 3;
+    console.log(avg)
+    if (avg >= 127) {
+      return this.copy().setRGB(0, 0, 0)
+    } else {
+      return this.copy().setRGB(255, 255, 255)
+    }
+  }
+
+  this.toDark = function () {
+    var hsl = this.getHSL();
+    return this.copy().setHSL(hsl.h, hsl.s, hsl.l - 0.06)
+  }
+
+  this.toLight = function () {
+    var hsl = this.getHSL();
+    return this.copy().setHSL(hsl.h, hsl.s, hsl.l + 0.14)
+  }
 
   this.toCSS = function () {
     return '#' + this.toHex();
