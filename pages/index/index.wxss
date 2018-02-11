@@ -51,6 +51,7 @@
 
 .top-controller {
   position: fixed;
+  z-index: 1;
   width: 90%;
   left: 5%;
   top: 0;
@@ -128,4 +129,8 @@
    width: 4px;
    height: 4px;
   flex-shrink: 0;
+}
+.moveable-area{
+  overflow: hidden;
+
 }	

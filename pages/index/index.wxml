@@ -17,9 +17,9 @@
 
 </view>
 
-  <movable-area style="overflow:hidden;height: {{araeHeight}}px;width: {{areaWith}}px;overflow:hidden;">
-    <movable-view style="overflow:hidden;height: {{moveableHeight}}px; width: {{moveableWidth}}px;" x="{{x}}" y="{{y}}" direction="{{direction}}" inertia="true" out-of-bounds="true" damping="20" friction="2">
-      <view class="canvas" style="transform-origin:left top;transform:scale({{ratio}},{{ratio}})">
+  <view class="moveable-area" style="height: {{araeHeight}}px;width: {{areaWith}}px;" bindtouchstart='touchstart' bindtouchmove='touchmove' bindtouchend='touchend' bindtouchcancel='touchcancel'>
+    <view  style="overflow:hidden;height: {{moveableHeight}}px; width: {{moveableWidth}}px;" x="{{x}}" y="{{y}}" direction="{{direction}}" inertia="true" out-of-bounds="true" damping="20" friction="2" style="transform-origin:left top;will-change: transform;transform:scale({{ratio}},{{ratio}})">
+      <view class="canvas" >
         <view class="row" wx:for="{{pixels}}" wx:for-index="idx" wx:for-item="row" wx:key="{{idx}}">
           <block wx:for="{{row}}" wx:for-index="pidx" wx:for-item="pixel" wx:key="{{id}}">
             <block wx:if="{{pixel.empty}}">
@@ -31,8 +31,8 @@
           </block>
         </view>
       </view>
-    </movable-view>
-  </movable-area>
+    </view>
+  </view>
   <scroll-view class="bottom-controller" scroll-x="true">
   <view class="palette-container">
    <view wx:for="{{palettes}}" class="palette" wx:for-item="palette" wx:key="{{id}}">
