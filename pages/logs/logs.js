@@ -57,14 +57,12 @@ Page({
         var xMove = e.touches[1].x - e.touches[0].x;
         var yMove = e.touches[1].y - e.touches[0].y;
         var distance = Math.sqrt(xMove * xMove + yMove * yMove);
-
         var zoom = distance / this.distance;
         var scale = this.scale * zoom;
-        centerX
         var centerX = (e.touches[1].x + e.touches[0].x) / 2 ;
-        var centerY = (e.touches[1].y + e.touches[0].y) / 2;
-        this.tanslateX -= ((this.centerX * zoom - this.centerX) - (centerX - this.centerX));
-        this.tanslateY -= ((this.centerY * zoom - this.centerY) - (centerY - this.centerY));
+        var centerY = (e.touches[1].y + e.touches[0].y) / 2;       
+        this.tanslateX -= ((this.centerX * scale -this.centerX * this.scale - (centerX*scale - this.centerX * this.scale)) );
+        this.tanslateY -= ((this.centerY * scale - this.centerY * this.scale - (centerY*scale -this.centerY * this.scale)) );    
         this.distance = distance;
         this.scale = scale;
         this.centerX = centerX;
@@ -85,11 +83,11 @@ Page({
   },
   touchcancel: function (e) { },
   draw: function(){
+    this.context.translate(-this.tanslateX, -this.tanslateY);
     this.context.scale(this.scale, this.scale);
-    this.context.translate(this.tanslateX , this.tanslateY );
     var step = 50;
-    var x = this.tanslateX;
-    var y = this.tanslateY ;
+    var x = 0;
+    var y = 0 ;
     for(var i = 0; i< 10; i++){
       this.context.moveTo(x, y);
       this.context.lineTo(x, y + 500);
@@ -98,8 +96,8 @@ Page({
 
     }
 
-    x = this.tanslateX;
-    y = this.tanslateY;
+    x = 0;
+    y = 0;
     for (var i = 0; i < 10; i++) {
       this.context.moveTo(x, y);
       this.context.lineTo(x + 500, y );
@@ -108,17 +106,7 @@ Page({
 
     }
     this.context.stroke()
-    // Clear screen to white.
-    //this.context.setFillStyle("green");
-    //this.context.fillRect(0, 0, this.width, this.height);
-    // Draw the black square.
-    //this.context.setFillStyle("black");
-    //this.context.fillRect(110, 202, 100, 100);  
-    //this.context.save()
-    this.context.beginPath()
-    this.context.arc(this.centerX + this.tanslateX, this.centerY + this.tanslateX, 2, 0, 2 * Math.PI)
-    this.context.setFillStyle('lightgreen')
-    this.context.fill()
+
     this.context.draw();
   },
   onLoad: function(){
